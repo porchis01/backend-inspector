@@ -1212,7 +1212,7 @@ async function analyzeObservation() {
       document.getElementById('loadingMsg').textContent = msgs[0].texts[msgIdx];
     }, 1800);
 
-    const response = await fetch('https://TU-BACKEND.onrender.com/analyze', {
+    const response = await fetch('https://backend-inspector.onrender.com/analyze', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
