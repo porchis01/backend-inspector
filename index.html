@@ -1225,7 +1225,10 @@ async function analyzeObservation() {
 
     clearInterval(interval);
 
-    if (!response.ok) throw new Error(`API ${response.status}`);
+   if (!response.ok) {
+  const txt = await response.text();
+  throw new Error(`API ${response.status}: ${txt}`);
+    }
     const data = await response.json();
     const raw = data.content.map(c => c.text || '').join('');
     const clean = raw.replace(/```json|```/g, '').trim();
